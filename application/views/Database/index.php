@@ -7,7 +7,7 @@
             <a href="#widget2container" data-toggle="collapse"><?php I18n::p('DB'); ?></a>
         </div>
         <div id="widget2container" class="block-body collapse in">
-            <table class="table list">
+            <table class="table table-hover list">
                 <thead>
                     <tr>
                         <th><?php I18n::p('NAME'); ?></th>

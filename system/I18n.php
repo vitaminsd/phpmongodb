@@ -29,7 +29,8 @@ class I18n {
         }
         return $message;
     }
-
+    
+    # print infomation(related to language)
     public static function p($k) {
         echo self::t($k);
     }

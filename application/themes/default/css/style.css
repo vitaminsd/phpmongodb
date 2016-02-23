@@ -273,6 +273,26 @@ a.block-heading:hover,
   border-left: none;
   margin: 0em;
 }
+.sidebar-nav .main-header{
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #c8c8cb;
+  border-left: none;
+  color: #333;
+  display: block;
+  background: #BEC0C2;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #BEC0C2), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #BEC0C2, #ffffff);
+  background: -moz-linear-gradient(center bottom, #BEC0C2 0%, #ffffff 100%);
+  background: -o-linear-gradient(bottom, #BEC0C2, #ffffff);
+  filter: progid:dximagetransform.microsoft.gradient(startColorStr='#4d5b76', EndColorStr='#6c7a95');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff',EndColorStr='#BEC0C2')";
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  line-height: 2.5em;
+  padding: 0em .25em;
+  margin-bottom: 0px;
+}
 .sidebar-nav .nav-header {
   border-top: 1px solid #ffffff;
   border-bottom: 1px solid #c8c8cb;
