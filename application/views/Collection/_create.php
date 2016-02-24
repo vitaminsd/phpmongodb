@@ -7,9 +7,9 @@
                 <label style="width:70px;"><?php I18n::p('IS_CAPPED'); ?></label>
                 <input type="checkbox" value="1" id="collection_capped" name="capped"><br><br>
                 <label style="width:70px;"><?php I18n::p('SIZE'); ?></label>
-                <input type="text" value="" id="collection_size" name="size" class="input-xlarge "><br><br>
+                <input type="number" value="" id="collection_size" name="size" class="input-xlarge "><br><br>
                 <label style="width:70px;"><?php I18n::p('Max'); ?></label>
-                <input type="text" value="" id="collection_max" name="max" class="input-xlarge"><br><br>
+                <input type="number" value="" id="collection_max" name="max" class="input-xlarge"><br><br>
                 <input type="hidden" id="load-create" name="load" value="Collection/CreateCollection" />
                 <input type="hidden" name="db" value="<?php echo $this->db; ?>" />
                 <label style="width:70px;">&nbsp;</label>
