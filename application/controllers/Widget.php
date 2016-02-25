@@ -4,6 +4,11 @@ defined('PMDDA') or die('Restricted access');
 
 class WidgetController extends Controller {
 
+    public function getPathList() {
+        $cmodel = new CModel();
+        return $cmodel->paths;
+    }
+
     public function getDBList() {
         $model = new Model();
         $dbList = $model->listDatabases();

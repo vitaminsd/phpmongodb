@@ -30,7 +30,7 @@ Theme
 View
 提供显示相关的内容
 Widget
-小工具
+小工具(初始化并加载model--可以用来扩展config model)
 
 **************application
 ###############controllers:（调用model里的方法并在View中显示）

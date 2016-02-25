@@ -29,7 +29,10 @@ class Config {
     public static $authorization = array(
         'readonly'=>false,
     );
-
+    public static $configpaths = array(
+        "D:/xampp/htdocs/mqzhou/trunk/zzz",
+        "D:/xampp/htdocs/mqzhou/trunk/yyy"
+    );
     /**
      *
      * @var array

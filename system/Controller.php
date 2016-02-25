@@ -61,6 +61,9 @@ class Controller {
     public function getModel() {
         return new Model();
     }
+    public function getCModel() {
+        return new CModel();
+    }
     public function isReadonly(){
         if(Application::isReadonly()){
             $this->message->error = I18n::t('I_A');
