@@ -293,6 +293,9 @@ a.block-heading:hover,
   padding: 0em .25em;
   margin-bottom: 0px;
 }
+.sidebar-nav .main-header a{
+  color: #333;
+}
 .sidebar-nav .nav-header {
   border-top: 1px solid #ffffff;
   border-bottom: 1px solid #c8c8cb;
@@ -447,6 +450,8 @@ a.block-heading:hover,
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  width: 40%;
+  float: left;
 }
 /*Faq*/
 .faq-content ul,

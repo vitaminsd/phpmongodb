@@ -11,38 +11,29 @@
 </script>
 
 <div class="footer row-fluid">
-            <div class="navbar-inner">
-                <ul class="nav pull-right">
-                   
-                    <li > <a href="http://www.phpmongodb.org" target="_blank">&copy; <?php echo date('Y');?> PHPmongoDB.org</a></li>
-                    
-
-                </ul>
-                
-            </div>
-        </div>
-
+    <div class="navbar-inner">
+        <ul class="nav pull-right">
+            <li>&copy; <?php echo date('Y');?> PHPmongoDB.org</li>
+        </ul>
+    </div>
+</div>
 
 <script>
     function callAjax(url) {
         url = url + '&theme=false'
         $(document).ready(function() {
-            
-                $.get(url, function(data, status) {
-                   if(status=='success'){
-                     $( "#middle-content" ).html(data);  
-                   }
-                });
-           
+            $.get(url, function(data, status) {
+               if(status=='success'){
+                 $( "#middle-content" ).html(data);  
+               }
+            });
         })
     }
     $(function() {
-        
        if($( ".sidebar-nav" ).height()>$( ".content" ).height()){
            $( ".content" ).css('height',$( ".sidebar-nav" ).height())
        }
-       
-});
+    });
 </script>    
 </body>
 </html>

@@ -8,7 +8,7 @@
     $pathList = $confModel->paths;
 
     if (is_array($dbList['databases'])) {
-    ?><p class="main-header"><?php I18n::p('DB'); ?></p><?php
+    ?><p class="main-header"><a href="<?php echo Theme::URL('Database/Index'); ?>"><?php I18n::p('DB'); ?></p></a><?php
         $dbName = $chttp->getParam('db');
         if (empty($dbName)) {
     ?>

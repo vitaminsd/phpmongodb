@@ -1,5 +1,3 @@
 <div class="well">
-    <?php
-        print_r(nl2br($this->data));
-    ?>
+    <textarea readonly name="data" rows="20" class="input-xlarge" style="width:95%;"><?php echo $this->data; ?></textarea>
 </div>

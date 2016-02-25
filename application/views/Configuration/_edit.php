@@ -1,8 +1,8 @@
-<div class="well" id="container-insert" style="<?php echo isset($this->data['isAjax'])?'display:block':'display:none';?>">
+<div class="well" id="container-insert" style="float:left; <?php echo isset($this->data['isAjax'])?'display:block':'display:none';?>">
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane active" id="Array">
             <form id="tab" method="post" action="index.php">
-                <textarea name="data" rows="16" class="input-xlarge" style="width:950px;"><?php echo $this->data; ?></textarea>
+                <textarea name="data" rows="20" class="input-xlarge" style="width:95%;"><?php echo $this->data; ?></textarea>
                 <div>
                     <button class="btn btn-primary"><?php I18n::p('SAVE');?></button>
                 </div>
