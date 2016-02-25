@@ -62,25 +62,6 @@
                     <li><a href="<?php echo Theme::URL('Index/Status'); ?>" ><?php echo I18n::t('STATUS');?></a></li>
                     <li><a href="<?php echo Theme::URL('Login/Logout'); ?>"  ><?php echo I18n::t('LOGOUT');?></a></li>
                     <?php }?>
-                    <li id="fat-menu" class="dropdown">
-                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i><?php echo I18n::t('LAN');?>
-                            <i class="icon-caret-down"></i>
-                        </a>
-
-                        
-                        <ul class="dropdown-menu">
-                            <?php
-                                $languageList = Widget::get('languageList');
-                                foreach($languageList as $key=>$val){
-                                    
-                                
-                            ?>
-                            <li><a tabindex="-1" href="<?php echo Theme::URL('Index/SetLanguage',array('language'=>$key)); ?>"><?php echo $val;?></a></li>
-                            <?php }?>
-                        </ul>
-                    </li>
-
                 </ul>
                 <a class="brand" href="<?php echo Theme::getHome(); ?>"><span class="second">{ </span><span class="first">PHP</span> <span class="second">mongoDB }</span></a>
             </div>

@@ -31,7 +31,7 @@ class Config {
     );
     public static $configpaths = array(
         "D:/xampp/htdocs/mqzhou/trunk/zzz",
-        "D:/xampp/htdocs/mqzhou/trunk/yyy"
+        "D:/xampp/htdocs/mqzhou/trunk/system/"
     );
     /**
      *

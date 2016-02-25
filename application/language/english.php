@@ -38,6 +38,9 @@ $language = array(
     'VALUE' => 'Value',
     'INVALID_DATA'=>'Invalid Data',
     'INVALID_ID'=>'Invalid _id',
+    //Config file
+    'C_F' => 'Config Files',
+    'M_T' => 'Modify time',
     //application/views/Index/index.php
     'W_S' => 'Web server',
     'PHP_V' => 'PHP version',
@@ -45,7 +48,7 @@ $language = array(
     'B_I' => 'Build Information',
     //application/views/Database/index.php
     'NAME' => 'Name',
-    'S_O_D' => 'size On Disk',
+    'S_O_D' => 'Size on Disk',
     'C_DB' => 'Create Database',
     'SAVE' => 'Save',
     'CANCEL' => 'Cancel',

@@ -2,26 +2,15 @@
 
 defined('PMDDA') or die('Restricted access');
 /*
- * Model
+ * Configuration model, write method here
  */
 
 class Configuration extends CModel {
-
-    public function createConfiguration() {
+    public function updateDate($path, $file, $data) {
         try {
-/*             $options=array('capped' => $capped,'size' =>$size,'max' =>$max);
-            $this->mongo->{$db}->createConfiguration($configuration,$options);
-            if (!$capped) {
-                $this->mongo->{$db}->selectConfiguration($configuration)->ensureIndex(array("_id" => 1));
-            } */
-            return TRUE;
-        } catch (Exception $e) {
-            exit($e->getMessage());
-        }
-    }
-
-    public function removeConfiguration() {
-        try {
+            $file = fopen($path."/".$file, "w");
+            fwrite($file, $data);
+            fclose($file);
             return TRUE;
         } catch (Exception $e) {
             exit($e->getMessage());

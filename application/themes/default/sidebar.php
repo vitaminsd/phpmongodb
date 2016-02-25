@@ -2,12 +2,13 @@
 <div class="sidebar-nav">
 
     <?php
+    $chttp=new Chttp();
     $dbList = Widget::get('DBList');
-    $pathList = Widget::get('PathList');
-    
+    $confModel = new Configuration;
+    $pathList = $confModel->paths;
+
     if (is_array($dbList['databases'])) {
-    ?><p class="main-header">Database</p><?php
-        $chttp=new Chttp();
+    ?><p class="main-header"><?php I18n::p('DB'); ?></p><?php
         $dbName = $chttp->getParam('db');
         if (empty($dbName)) {
     ?>
@@ -54,28 +55,33 @@
     
     if (is_array($pathList)) {
         ?>
-        <p class="main-header">Config Files</p>
+        <p class="main-header"><?php I18n::p('C_F'); ?></p>
         <?php
+            $pathName = $chttp->getParam('path');
             foreach($pathList as $path) {
-                $handle = opendir($path.".");
-                $array_file=array();
-                while (false !== ($file=readdir($handle))) {
-                    if ($file != "." && $file != "..")
-                    {
-                        $array_file[] = $file;
-                    }
+                $array_file=$confModel->listFiles($path);
+                if ($pathName == $path) {
+                    ?>
+                    <a href="#config-menu" class="nav-header" data-toggle="collapse" title="<?php echo $path;?>">
+                        <i class="icon-database"></i><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
+                    </a>
+                    <?php
+                } else {
+                    ?>
+                    <a href="<?php echo Theme::URL('Configuration/Index', array('path' => $path)); ?>" class="nav-header" title="<?php echo $path;?>">
+                        <i class="icon-database"></i><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
+                    </a>
+                    <?php
                 }
-                closedir($handle);
-                ?>
-                <a href="#config-menu-<?php echo basename($path)?>" class="nav-header" data-toggle="collapse" title="<?php echo $path;?>">
-                    <i class="icon-database"></i><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
-                </a>
-                <ul id="config-menu-<?php echo basename($path)?>" class="nav nav-list collapse in">
-                    <?php foreach ($array_file as $file) {?>
-                    <li ><a href="<?php echo Theme::URL('Configuration/Record', array('path' => $path, 'file' => $file, 'db' => $db['name'], 'collection' => $collection['name'])); ?>"><i class="icon-collection"></i><?php echo $file; ?></a></li>
-                    <?php } ?>
-                </ul>
+                if ($pathName == $path) {
+                    ?>
+                    <ul id="config-menu" class="nav nav-list collapse in">
+                        <?php foreach ($array_file as $file) {?>
+                        <li ><a href="<?php echo Theme::URL('Configuration/Record', array('path' => $path, 'file' => $file['name'])); ?>"><i class="icon-collection"></i><?php echo $file['name']; ?></a></li>
+                        <?php } ?>
+                    </ul>
                 <?php 
+                }
             }
     }
         ?>

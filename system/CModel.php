@@ -22,16 +22,23 @@ class CModel {
 
     public function listFiles($path) {
         try {
-            $handle = opendir($path);
             $array_file=array();
-            while (false !== ($file=readdir($handle)))
+            if (is_dir($path))
             {
-                if ($file != "." && $file != "..")
+                $handle = opendir($path);
+                while (false !== ($file=readdir($handle)))
                 {
-                    $array_file[] = $path."/".$file;
+                    $filename = $path."/".$file;
+                    if (is_file($filename))
+                    {
+                        $fsize = filesize($filename);
+                        $ftime = filemtime($filename);
+                        $fileP = array("name"=>$file, "size"=>$fsize, "mtime"=>$ftime);
+                        $array_file[] = $fileP;
+                    }
                 }
+                closedir($handle);
             }
-            closedir($handle);
             return $array_file;
         } catch (Exception $e) {
             return $e->getMessage();
