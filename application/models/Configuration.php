@@ -8,10 +8,16 @@ defined('PMDDA') or die('Restricted access');
 class Configuration extends CModel {
     public function updateDate($path, $file, $data) {
         try {
-            $file = fopen($path."/".$file, "w");
-            fwrite($file, $data);
-            fclose($file);
-            return TRUE;
+            // update when data change
+            $ori_data = file_get_contents($path."/".$file);
+            if ($ori_data == $data) {
+                return TRUE;
+            } else {
+                $file = fopen($path."/".$file, "w");
+                fwrite($file, $data);
+                fclose($file);
+                return TRUE;
+            }
         } catch (Exception $e) {
             exit($e->getMessage());
         }

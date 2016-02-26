@@ -1,8 +1,8 @@
 <div class="header">
-    <h1 class="page-title"><?php I18n::p('DB'); ?></h1>
+    <h3><?php I18n::p('DB'); ?></h3>
 </div>
 <div class="row-fluid">
-    <div class="block span6">
+    <div class="block col-sm-12 col-md-6"  style="margin-right:5%">
         <div class="block-heading">
             <a href="#widget2container" data-toggle="collapse"><?php I18n::p('DB'); ?></a>
         </div>

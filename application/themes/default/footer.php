@@ -10,12 +10,8 @@
     });
 </script>
 
-<div class="footer row-fluid">
-    <div class="navbar-inner">
-        <ul class="nav pull-right">
-            <li>&copy; <?php echo date('Y');?> PHPmongoDB.org</li>
-        </ul>
-    </div>
+<div class="footer">
+    <p>&copy; <?php echo date('Y');?> PHPmongoDB.org</p>
 </div>
 
 <script>

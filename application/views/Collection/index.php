@@ -1,8 +1,8 @@
 <div class="header">
-    <h1 class="page-title"><i class="icon-database"></i><?php echo $this->db; ?></h1>
+    <h3><?php echo $this->db;?></h3>
 </div>
 <div class="row-fluid">
-    <div class="block span6">
+    <div class="block col-sm-12 col-md-6"  style="margin-right:5%">
         <div class="block-heading">
             <a href="#widget2container" data-toggle="collapse"><?php I18n::p('COLLECTION'); ?></a>
         </div>
@@ -24,10 +24,10 @@
                              <?php if(!Application::isReadonly()) {?>
                             <td>
                                 <a  href="#myModal" data-edit-collection="<?php echo urlencode($collection['name']); ?>" role="button" data-toggle="modal" title="Edit" class="icon-edit">
-                                    &nbsp;
+                                    <span class="glyphicon glyphicon-edit"></span>
                                 </a>
                                 <a href="#myModal" data-delete-collection="<?php echo urlencode($collection['name']); ?>"role="button" data-toggle="modal" title="Remove" class="icon-remove">
-                                    &nbsp;
+                                    <span class="glyphicon glyphicon-remove"></span>
                                 </a>
                             </td>
                             <?php }?>

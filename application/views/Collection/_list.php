@@ -1,12 +1,14 @@
 <?php if (!Application::isReadonly()) { ?>
 <div class="nav-sub-panel" >
+    <div class="form-group form-horizontal">
     <label><input type="checkbox" name="check-all" id="check-all" value="" style="margin: 0"> Check All/ Uncheck All</label>
-    <a class="icon-remove" title="Delete" href="javascript:void(0)" id="delete-all" >Delete</a>
+    <a title="Delete" href="javascript:void(0)" id="delete-all" ><span class="glyphicon glyphicon-remove"></span>Delete</a>
     <input type="hidden" name="db-hidden" id="db-hidden" value="<?php echo $this->db;?>" />
     <input type="hidden" name="collection-hidden" id="collection-hidden" value="<?php echo $this->collection;?>" />
+    </div>
 </div> 
 <?php }?>
-<div class="well">
+<div class="well-list">
     <?php
     $showTab = true;
     foreach ($this->data['format'] as $format) {

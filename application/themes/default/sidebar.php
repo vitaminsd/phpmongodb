@@ -1,6 +1,5 @@
 <?php defined('PMDDA') or die('Restricted access'); ?>
 <div class="sidebar-nav">
-
     <?php
     $chttp=new Chttp();
     $dbList = Widget::get('DBList');
@@ -12,12 +11,13 @@
         $dbName = $chttp->getParam('db');
         if (empty($dbName)) {
     ?>
-            <ul  class="nav nav-list collapse in bodymargin">
+            <ul  class="nav nav-list collapse in">
                 <?php
                 foreach ($dbList['databases'] as $db) {
                     ?>
                     <a href="<?php echo Theme::URL('Collection/Index', array('db' => $db['name'])); ?>" class="nav-header" >
-                        <i class="icon-database"></i><?php echo $db['name']; ?><span class="label label-info"><?php echo !empty($db['noOfCollecton'])?$db['noOfCollecton']:'';?></span></a>
+                        <span class="glyphicon glyphicon-floppy-disk"></span><?php echo $db['name']; ?><span class="label label-info"><?php echo !empty($db['noOfCollecton'])?$db['noOfCollecton']:'';?></span>
+                    </a>
                 <?php } ?>
 
 
@@ -29,7 +29,7 @@
                     $collectionList = Widget::get('CollectonList');
                     ?>
                     <a href="#accounts-menu" class="nav-header" data-toggle="collapse">
-                        <i class="icon-database"></i><?php echo $db['name']; ?><span class="label label-info"><?php echo $db['noOfCollecton'];?></span>
+                        <span class="glyphicon glyphicon-floppy-disk"></span><?php echo $db['name']; ?><span class="label label-info"><?php echo $db['noOfCollecton'];?></span>
                     </a>
                     <?php 
                     if ($collectionList) { 
@@ -37,7 +37,7 @@
                         ?>
                         <ul id="accounts-menu" class="nav nav-list collapse in">
                             <?php foreach ($collectionList as $collection) {?>
-                            <li ><a href="<?php echo Theme::URL('Collection/Record', array('db' => $db['name'], 'collection' => $collection['name'])); ?>"><i class="icon-collection"></i><?php echo $collection['name'],' ('.$collection['count'],')'; ?></a></li>
+                            <li ><a href="<?php echo Theme::URL('Collection/Record', array('db' => $db['name'], 'collection' => $collection['name'])); ?>"><span class="glyphicon glyphicon-list"></span><?php echo $collection['name'],' ('.$collection['count'],')'; ?></a></li>
                             <?php } ?>
                         </ul>
                         <?php
@@ -46,7 +46,7 @@
                 } else {
                     ?>
                     <a href="<?php echo Theme::URL('Collection/Index', array('db' => $db['name'])); ?>" class="nav-header" >
-                        <i class="icon-database"></i><?php echo $db['name']; ?><span class="label label-info"><?php echo $db['noOfCollecton'];?></span></a>
+                        <span class="glyphicon glyphicon-floppy-disk"></span><?php echo $db['name']; ?><span class="label label-info"><?php echo $db['noOfCollecton'];?></span></a>
                             <?php
                 }
             }
@@ -63,13 +63,13 @@
                 if ($pathName == $path) {
                     ?>
                     <a href="#config-menu" class="nav-header" data-toggle="collapse" title="<?php echo $path;?>">
-                        <i class="icon-database"></i><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
+                        <span class="glyphicon glyphicon-book"></span><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
                     </a>
                     <?php
                 } else {
                     ?>
                     <a href="<?php echo Theme::URL('Configuration/Index', array('path' => $path)); ?>" class="nav-header" title="<?php echo $path;?>">
-                        <i class="icon-database"></i><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
+                        <span class="glyphicon glyphicon-book"></span><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
                     </a>
                     <?php
                 }
@@ -77,7 +77,7 @@
                     ?>
                     <ul id="config-menu" class="nav nav-list collapse in">
                         <?php foreach ($array_file as $file) {?>
-                        <li ><a href="<?php echo Theme::URL('Configuration/Record', array('path' => $path, 'file' => $file['name'])); ?>"><i class="icon-collection"></i><?php echo $file['name']; ?></a></li>
+                        <li ><a href="<?php echo Theme::URL('Configuration/Record', array('path' => $path, 'file' => $file['name'])); ?>"><span class="glyphicon glyphicon-file"></span><?php echo $file['name']; ?></a></li>
                         <?php } ?>
                     </ul>
                 <?php 
