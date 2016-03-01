@@ -15,7 +15,7 @@ class ConfigurationController extends Controller {
     protected $file = NULL;
     protected $configuration = NULL;
     protected $url = NULL;
-    protected $cmodel = FALSE;
+    protected $cmodel = NULL;
 
     public function getModel() {
         if (!($this->cmodel instanceof Configuration)) {
@@ -37,6 +37,12 @@ class ConfigurationController extends Controller {
         $this->Configuration = urldecode($this->request->getParam('Configuration'));
     }
     
+    public function ListPaths() {
+        $this->getModel();
+        $pathInfo = $this->cmodel->listFolder(Config::$configpaths);
+        $this->display('list', $pathInfo);
+    }
+    
     public function Index() {
         $this->setPath();
         $this->getModel();
@@ -50,21 +56,19 @@ class ConfigurationController extends Controller {
         $this->setPath();
         $this->setFile();
         $this->setConfiguration();
-        $content = file_get_contents($this->path."/".$this->file);
+        $content = file_get_contents($this->file);
         $this->application->view = 'Configuration';
         $this->display('record', $content);
     }
 
     public function EditRecord() {
         $this->isReadonly();
-        $this->setConfiguration();
-        $this->setPath();
         $this->setFile();
         $data = $this->request->getParam('data');
         $cmodel = $this->getModel();
 
-        if ($cmodel->updateDate($this->path, $this->file, $data)) {
-            $this->request->redirect(Theme::URL('Configuration/Record', array('path' => $this->path, 'file' => $this->file, 'Configuration' => $this->Configuration)));
+        if ($cmodel->updateDate($this->file, $data)) {
+            $this->request->redirect(Theme::URL('Configuration/Record', array('file' => $this->file)));
         } else {
             $this->url = "index.php";
             $this->request->redirect($this->url);

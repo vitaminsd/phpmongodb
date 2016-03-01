@@ -10,7 +10,6 @@
                     <th><?php I18n::p('NAME'); ?></th>
                     <th><?php I18n::p('S_O_D'); ?></th>
                     <th><?php I18n::p('M_T'); ?></th>
-                    <th >&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,15 +17,9 @@
                 foreach ($this->file as $file) {
                     ?>
                     <tr>
-                        <td><a href="<?php echo Theme::URL('Configuration/Record', array('path' => $this->path, 'file' => $file['name'])); ?>"><?php echo $file['name']; ?></i></td>
+                        <td><a href="<?php echo Theme::URL('Configuration/Record', array('path'=>$this->path, 'file' => $file['name'])); ?>"><?php echo basename($file['name']); ?></i></td>
                         <td><?php echo $file['size'] ?></td>
                         <td><?php echo date("Y-m-d H:i:s", $file['mtime']) ?></td>
-                        <?php if (!Application::isReadonly()) { ?>
-                            <td>
-                                <a href="#myModal" data-edit-db="<?php echo $db['name']; ?>" role="button" data-toggle="modal" class="icon-edit" title="Edit">&nbsp;</a>
-                                <a href="#myModal" data-delete-db="<?php echo $db['name']; ?>" role="button" data-toggle="modal" class="icon-remove" title="Remove">&nbsp;</a>
-                            </td>
-                        <?php } ?>
                     </tr>
                 <?php
                 }

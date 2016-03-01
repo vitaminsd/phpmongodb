@@ -6,14 +6,14 @@ defined('PMDDA') or die('Restricted access');
  */
 
 class Configuration extends CModel {
-    public function updateDate($path, $file, $data) {
+    public function updateDate($file, $data) {
         try {
             // update when data change
-            $ori_data = file_get_contents($path."/".$file);
+            $ori_data = file_get_contents($file);
             if ($ori_data == $data) {
                 return TRUE;
             } else {
-                $file = fopen($path."/".$file, "w");
+                $file = fopen($file, "w");
                 fwrite($file, $data);
                 fclose($file);
                 return TRUE;

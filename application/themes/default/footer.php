@@ -2,7 +2,7 @@
 
 </div>
 <div id="foot" class="footer">
-    <h5 class="text-right text-info">&copy; <?php echo date('Y');?> PHPmongoDB.org&nbsp;</h5>
+    <h5 class="text-right text-info">&copy; <?php echo date('Y');?> iflytek.com&nbsp;</h5>
 </div>
 </div>
 

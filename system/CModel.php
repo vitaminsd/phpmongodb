@@ -20,21 +20,30 @@ class CModel {
         }
     }
 
+    public function listFolder($paths) {
+        try {
+            $array_paths=array();
+            foreach($paths as $path) {
+                $array_paths[] = $this->getFileProperty($path);
+            }
+            return $array_paths;
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
     public function listFiles($path) {
         try {
             $array_file=array();
-            if (is_dir($path))
-            {
+            if (is_file($path)) {
+                $array_file[] = $this->getFileProperty($path);
+            } else if (is_dir($path)) {
                 $handle = opendir($path);
                 while (false !== ($file=readdir($handle)))
                 {
                     $filename = $path."/".$file;
                     if (is_file($filename))
                     {
-                        $fsize = filesize($filename);
-                        $ftime = filemtime($filename);
-                        $fileP = array("name"=>$file, "size"=>$fsize, "mtime"=>$ftime);
-                        $array_file[] = $fileP;
+                        $array_file[] = $this->getFileProperty($filename);
                     }
                 }
                 closedir($handle);
@@ -57,6 +66,9 @@ class CModel {
         }
     }
 
+    private function getFileProperty($filename) {
+        return array("name"=>$filename, "size"=>filesize($filename), "mtime"=>filemtime($filename));
+    }
 }
 
 ?>

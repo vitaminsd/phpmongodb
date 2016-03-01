@@ -7,7 +7,8 @@
     $pathList = $confModel->paths;
 
     if (is_array($dbList['databases'])) {
-    ?><p class="main-header"><a href="<?php echo Theme::URL('Database/Index'); ?>"><?php I18n::p('DB'); ?></p></a><?php
+    ?><p class="main-header"><a href="<?php echo Theme::URL('Database/Index'); ?>"><?php I18n::p('DB'); ?></a></p>
+    <?php
         $dbName = $chttp->getParam('db');
         if (empty($dbName)) {
     ?>
@@ -55,7 +56,7 @@
     
     if (is_array($pathList)) {
         ?>
-        <p class="main-header"><?php I18n::p('C_F'); ?></p>
+        <p class="main-header"><a href="<?php echo Theme::URL('Configuration/ListPaths'); ?>"><?php I18n::p('C_F'); ?></a></p>
         <?php
             $pathName = $chttp->getParam('path');
             foreach($pathList as $path) {
@@ -77,7 +78,7 @@
                     ?>
                     <ul id="config-menu" class="nav nav-list collapse in">
                         <?php foreach ($array_file as $file) {?>
-                        <li ><a href="<?php echo Theme::URL('Configuration/Record', array('path' => $path, 'file' => $file['name'])); ?>"><span class="glyphicon glyphicon-file"></span><?php echo $file['name']; ?></a></li>
+                        <li ><a href="<?php echo Theme::URL('Configuration/Record', array('path'=>$path, 'file' => $file['name'])); ?>"><span class="glyphicon glyphicon-file"></span><?php echo basename($file['name']); ?></a></li>
                         <?php } ?>
                     </ul>
                 <?php 

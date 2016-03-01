@@ -30,8 +30,9 @@ class Config {
         'readonly'=>false,
     );
     public static $configpaths = array(
-        "D:/xampp/htdocs/mqzhou/trunk/zzz",
-        "D:/xampp/htdocs/mqzhou/trunk/system/"
+        "D:/xampp/htdocs/mqzhou/zzz",
+        "D:/xampp/htdocs/mqzhou/yyy/",
+        "D:/xampp/htdocs/mqzhou/yyy/fss.cfg"
     );
     /**
      *
