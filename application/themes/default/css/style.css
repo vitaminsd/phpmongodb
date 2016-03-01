@@ -7,13 +7,20 @@ html,body {
   height: 100%;
 }
 #container {
+  min-width: 300px;
   min-height:100%;
   height: auto !important;
   height: 100%; /*IE6不识别min-height*/
   position: relative;
 }
+#center {
+    min-height: 600px;
+}
 .navbar-nomargin {
     margin: 0;
+}
+.nav > li > a:hover{
+    background-color:#e6e6e6 !important;
 }
 /*Navigation*/
 .sidebar-nav {
@@ -84,11 +91,14 @@ html,body {
 .content {
   min-width: 400px;
   position: relative;
-  min-height: 500px;
+  min-height: 600px;
   background: #fff;
   margin-left: 240px;
   border-left: 1px solid #cccccc;
   border-left: 3px solid #999999;
+}
+.dialog {
+    margin-top: 100px;
 }
 .header {
   background: #ffffff;
@@ -107,6 +117,7 @@ html,body {
     padding-right: 0;
 }
 .well {
+  min-width: 400px;
   background-color: #fff;
   border: 1px solid #ccc;
   -webkit-box-shadow: 1px 1px 0px #ffffff;
@@ -136,7 +147,7 @@ html,body {
     margin-top: 15px;
 }
 .footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   border-top: 1px solid #e5e5e5;

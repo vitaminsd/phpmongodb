@@ -31,7 +31,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="example-navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="<?php echo Theme::URL('Server/Execute'); ?>" ><?php echo I18n::t('Execute');?></a></li>
+                        <li><a href="<?php echo Theme::URL('Server/Execute'); ?>" ><?php echo I18n::t('Execute');?></a></li>
                         <li><a href="<?php echo Theme::URL('Database/Index'); ?>" ><?php echo I18n::t('DB');?></a></li>
                         <li><a href="<?php echo Theme::URL('Index/Status'); ?>" ><?php echo I18n::t('STATUS');?></a></li>
                         <li><a href="<?php echo Theme::URL('Login/Logout'); ?>"  ><?php echo I18n::t('LOGOUT');?></a></li>

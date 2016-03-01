@@ -1,4 +1,11 @@
 <?php defined('PMDDA') or die('Restricted access'); ?>
+
+</div>
+<div id="foot" class="footer">
+    <h5 class="text-right text-info">&copy; <?php echo date('Y');?> PHPmongoDB.org&nbsp;</h5>
+</div>
+</div>
+
 <script src="<?php echo Theme::getPath(); ?>bootstrap/js/bootstrap.js"></script>
 <script src="<?php echo Theme::getPath(); ?>js/PHPMongoDB.js?v=<?php echo Theme::getVersion('/application/themes/default/js/PHPMongoDB.js');?>"></script>
 <script type="text/javascript">
@@ -9,12 +16,6 @@
         });
     });
 </script>
-
-<div id="foot" class="footer">
-    <h5 class="text-right text-info">&copy; <?php echo date('Y');?> PHPmongoDB.org&nbsp;</h5>
-</div>
-</div>
-</div>
 <script>
     function callAjax(url) {
         url = url + '&theme=false'
