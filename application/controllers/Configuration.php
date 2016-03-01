@@ -63,12 +63,13 @@ class ConfigurationController extends Controller {
 
     public function EditRecord() {
         $this->isReadonly();
+        $this->setPath();
         $this->setFile();
         $data = $this->request->getParam('data');
         $cmodel = $this->getModel();
 
         if ($cmodel->updateDate($this->file, $data)) {
-            $this->request->redirect(Theme::URL('Configuration/Record', array('file' => $this->file)));
+            $this->request->redirect(Theme::URL('Configuration/Record', array('path'=> $this->path, 'file' => $this->file)));
         } else {
             $this->url = "index.php";
             $this->request->redirect($this->url);

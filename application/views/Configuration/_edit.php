@@ -7,6 +7,7 @@
                     <button class="btn btn-primary"><?php I18n::p('SAVE');?></button>
                 </div>
                 <input type="hidden" name="load" value="Configuration/EditRecord"/>
+                <input type="hidden" name="path" value="<?php echo $this->path; ?>" />
                 <input type="hidden" name="file" value="<?php echo $this->file; ?>" />
             </form>
         </div>
