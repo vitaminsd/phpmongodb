@@ -1,6 +1,6 @@
 <div class="row-fluid">
     <div class="block col-xs-12 col-md-6">
-        <a href="#tablewidget" class="block-heading" data-toggle="collapse"><?PHP I18n::p('W_S');?></a>
+        <h4><a href="#tablewidget" class="block-heading" data-toggle="collapse"><?PHP I18n::p('W_S');?></a></h4>
         <div id="tablewidget" class="block-body collapse in">
             <table class="table">
                 <tbody>
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="block col-xs-12 col-md-6">
-        <a href="#widget1container" class="block-heading" data-toggle="collapse"><?PHP I18n::p('B_I');?></a>
+        <h4><a href="#widget1container" class="block-heading" data-toggle="collapse"><?PHP I18n::p('B_I');?></a></h4>
         <div id="widget1container" class="block-body collapse in">
             <table class="table">
                 <tbody>

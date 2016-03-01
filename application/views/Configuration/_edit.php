@@ -1,4 +1,4 @@
-<div class="well" id="container-insert" style="float:left; <?php echo isset($this->data['isAjax'])?'display:block':'display:none';?>">
+<div class="well" id="container-insert" style="float:left;   width: 40%; <?php echo isset($this->data['isAjax'])?'display:block':'display:none';?>">
     <div id="myTabContent" class="edit-content">
         <div class="tab-pane active">
             <form id="tab" method="post" action="index.php">

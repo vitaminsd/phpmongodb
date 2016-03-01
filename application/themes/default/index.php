@@ -4,7 +4,7 @@
 <?php $isLogedIn ?include('sidebar.php'):'';?>
 
 
-<div class="bodymargin <?php echo $isLogedIn?'content':'content-gap';?>">
+<div id="right" class="bodymargin <?php echo $isLogedIn?'content':'content-gap';?>">
     <!--Call View -->
     <div class="container-fluid">
         <div class="row-fluid">

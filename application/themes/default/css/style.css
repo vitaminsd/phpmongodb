@@ -1,7 +1,17 @@
-a:hover {
+a:link {
   text-decoration: none;
 }
-
+html,body {
+  margin: 0;
+  padding:0;
+  height: 100%;
+}
+#container {
+  min-height:100%;
+  height: auto !important;
+  height: 100%; /*IE6不识别min-height*/
+  position: relative;
+}
 .navbar-nomargin {
     margin: 0;
 }
@@ -74,7 +84,7 @@ a:hover {
 .content {
   min-width: 400px;
   position: relative;
-  min-height: 800px;
+  min-height: 500px;
   background: #fff;
   margin-left: 240px;
   border-left: 1px solid #cccccc;
@@ -108,23 +118,7 @@ a:hover {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  width: 40%;
-  float: left;
   margin: 10px;
-}
-.well-list {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  -webkit-box-shadow: 1px 1px 0px #ffffff;
-  -moz-box-shadow: 1px 1px 0px #ffffff;
-  box-shadow: 1px 1px 0px #ffffff;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  padding: 20px;
 }
 .btn-toolbar {
     padding: 10px;
@@ -134,19 +128,6 @@ a:hover {
   background: white;
   margin: 1em 0em;
 }
-.block-heading {
-  border-bottom: 1px solid #a6a6a6;
-  border-left: none;
-  color: #505050;
-  display: block;
-  text-shadow: none;
-  text-transform: none;
-  font-weight: bold;
-  font-size: .85em;
-  line-height: 3em;
-  
-}
-
 .nav-sub-panel
 {
     color: #0088CC;
@@ -154,4 +135,9 @@ a:hover {
     padding-right: 50px;
     margin-top: 15px;
 }
-
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+}

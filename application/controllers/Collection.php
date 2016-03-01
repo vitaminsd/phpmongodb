@@ -481,10 +481,13 @@ class CollectionController extends Controller {
         $skip = $this->request->getParam('skip');
         $limit = empty($limit) ? false : $limit;
         $skip = empty($skip) ? false : $skip;
+        $cursor = $this->getModel()->find($this->db, $this->collection, $query, $fields, $limit, $skip);
+        if (!$cursor->hasNext()) {
+            return "Error:\n". "Row to begin at: ".$skip;
+        }
         $path = sys_get_temp_dir();
         $fileName = $this->request->getParam('file_name');
         $fileName = (empty($fileName) ? $this->collection : $fileName) . '.json';
-        $cursor = $this->getModel()->find($this->db, $this->collection, $query, $fields, $limit, $skip);
         $file = new File($path, $fileName);
         $file->delete();
         $cryptography = new Cryptography();
@@ -510,7 +513,8 @@ class CollectionController extends Controller {
                 return false;
             }
         } else {
-            return file_get_contents($path . $fileName);
+            if (file_exists($path . $fileName))
+                return file_get_contents($path . $fileName);
         }
     }
 

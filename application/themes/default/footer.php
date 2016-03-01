@@ -10,10 +10,11 @@
     });
 </script>
 
-<div class="footer">
-    <p>&copy; <?php echo date('Y');?> PHPmongoDB.org</p>
+<div id="foot" class="footer">
+    <h5 class="text-right text-info">&copy; <?php echo date('Y');?> PHPmongoDB.org&nbsp;</h5>
 </div>
-
+</div>
+</div>
 <script>
     function callAjax(url) {
         url = url + '&theme=false'

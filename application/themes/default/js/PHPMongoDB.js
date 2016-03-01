@@ -19,11 +19,11 @@ var PMDI = {
     appendTR: function() {
         var trID = 'tr-indexes' + $('#tbl-fiedl-value tr').length;
         var tr = '<tr id="' + trID + '">';
-        tr = tr + '<td><input type="text" class="input-xlarge" name="fields[]"></td>';
-        tr = tr + '<td><textarea  rows="2" class="input-xlarge" name="values[]"></textarea></td>';
+        tr = tr + '<td><input type="text" name="fields[]"></td>';
+        tr = tr + '<td><textarea  rows="2" name="values[]"></textarea></td>';
         tr = tr + '<td>';
-        tr = tr + '&nbsp;<a href="javascript:void(0)" onclick="PMDI.appendTR();" class="icon-plus" title="Add">&nbsp;</a>&nbsp;';
-        tr = tr + "<a href=\"javascript:void(0)\" onclick=\"PMDI.removeTR('" + trID + "');\" class=\"icon-minus\" title=\"Remove\">&nbsp;</a>";
+        tr = tr + '&nbsp;<a href="javascript:void(0)" onclick="PMDI.appendTR();" title="Add"><span class="glyphicon glyphicon-plus"></span></a>&nbsp;';
+        tr = tr + "<a href=\"javascript:void(0)\" onclick=\"PMDI.removeTR('" + trID + "');\" title=\"Remove\"><span class=\"glyphicon glyphicon-minus\"></span></a>";
         tr = tr + '</td>';
         tr = tr + '</tr>';
         $("#tbl-fiedl-value").append(tr);
@@ -40,16 +40,13 @@ var PMDIN = {
         var trID = 'tr-indexes' + $('#tbl-create-indexes tr').length;
         var tr = '<tr id="' + trID + '">';
         tr = tr + '<td>&nbsp;</td>';
-        tr = tr + '<td><input type="text" class="input-xlarge" name="fields[]"></td>';
-        tr = tr + '<td>';
+        tr = tr + '<td><input type="text" name="fields[]">&nbsp;';
         tr = tr + '<select name="orders[]" style="width:auto;">';
         tr = tr + '<option value="1">ASC</option>';
         tr = tr + '<option value="-1">DESC</option>';
         tr = tr + '</select>';
-        tr = tr + '</td>';
-        tr = tr + '<td>';
-        tr = tr + '&nbsp;<a href="javascript:void(0)" onclick="PMDIN.appendTR();" class="icon-plus" title="Add">&nbsp;</a>&nbsp;';
-        tr = tr + "<a href=\"javascript:void(0)\" onclick=\"PMDIN.removeTR('" + trID + "');\" class=\"icon-minus\" title=\"Remove\">&nbsp;</a>";
+        tr = tr + '&nbsp;<a href="javascript:void(0)" onclick="PMDIN.appendTR();" title="Add"><span class="glyphicon glyphicon-plus"></span></a>&nbsp;';
+        tr = tr + "<a href=\"javascript:void(0)\" onclick=\"PMDIN.removeTR('" + trID + "');\" title=\"Remove\"><span class=\"glyphicon glyphicon-minus\"></span></a>";
         tr = tr + '</td>';
         tr = tr + '</tr>';
         $("#tbl-create-indexes").append(tr);
@@ -103,7 +100,7 @@ var PMDR = {
             $('#btn-insert').addClass('btn active');
         });
         $("#add-field-value-row").click(function() {
-            $("#tbl-fiedl-value").append('<tr><td><input type="text" class="input-xlarge" name="fields[]"></td><td><textarea  rows="2" class="input-xlarge" name="values[]"></textarea></td></tr>');
+            $("#tbl-fiedl-value").append('<tr><td><input type="text" name="fields[]"></td><td><textarea  rows="2" name="values[]"></textarea></td></tr>');
             $('#remove-field-value-row').show();
             return false;
         });
@@ -172,44 +169,43 @@ var PMDS = {
         var trID = 'tr-indexes' + $('#tbl-search-col-val tr').length;
         var tr = '<tr id="' + trID + '">';
         tr = tr + '<td><select name="query[]" style="width: auto;"><option value="$and">AND</option><option value="$or">OR</option></select></td>';
-        tr = tr + '<td><input type="text" class="input-xlarge" name="query[]"  placeholder="Enter Attribute"></td>';
+        tr = tr + '<td><input type="text" name="query[]"  placeholder="Enter Attribute"></td>';
         tr = tr + '<td>';
         tr = tr + '<select name="query[]" style="width: auto;">';
         tr = tr + '<option value="=">=</option>';
         tr = tr + '<option value="$gt">&gt;</option>';
-        tr = tr + '<option value="$gte=">&gt;=</option>';
+        tr = tr + '<option value="$gte=">&ge;</option>';
         tr = tr + '<option value="$lt">&lt;</option>';
-        tr = tr + '<option value="$lte=">&lt;=</option>';
-        tr = tr + '<option value="$ne">!=</option>';
+        tr = tr + '<option value="$lte=">&le;</option>';
+        tr = tr + '<option value="$ne">&ne;</option>';
         tr = tr + '</select>';
         tr = tr + '</td>';
-        tr = tr + '<td><input type="text" class="input-xlarge" name="query[]" placeholder="Enter Value"></td>';
-        tr = tr + '<td>';
-        tr = tr + '&nbsp;<a href="javascript:void(0)" onclick="PMDS.appendTR();" class="icon-plus" title="Add">&nbsp;</a>&nbsp';
-        tr = tr + "<a href=\"javascript:void(0)\" onclick=\"PMDS.removeTR('" + trID + "');\" class=\"icon-minus\" title=\"Remove\">&nbsp;</a>";
+        tr = tr + '<td><input type="text" name="query[]" placeholder="Enter Value">';
+        tr = tr + '&nbsp;<a href="javascript:void(0)" onclick="PMDS.appendTR();" title="Add"><span class="glyphicon glyphicon-plus"></span></a>&nbsp';
+        tr = tr + "<a href=\"javascript:void(0)\" onclick=\"PMDS.removeTR('" + trID + "');\" title=\"Remove\"><span class=\"glyphicon glyphicon-minus\"></span></a>";
         tr = tr + '</td>';
         tr = tr + '</tr>';
         $("#tbl-search-col-val").append(tr);
         return false;
     },
     removeTR: function(trID) {
-        $("table#tbl-search-col-val tr#" + trID).remove();
+        $("table #tbl-search-col-val tr#" + trID).remove();
         return false;
     },
     appendOrderBy: function() {
         var trID = 'tr-indexes' + $('#tbl-order-by tr').length;
         var tr = '<tr id="' + trID + '">';
-        tr = tr + '<td><input type="text" class="input-xlarge" name="order_by[]"  value="" placeholder="Enter Attribute"></td><td><select style="width: auto;" name="orders[]"><option value="1">ASC</option><option value="-1">DESC</option></select></td>';
-        tr = tr + '<td>';
-        tr = tr + '&nbsp;<a href="javascript:void(0)" onclick="PMDS.appendOrderBy();" class="icon-plus" title="Add">&nbsp</a>&nbsp;';
-        tr = tr + "<a href=\"javascript:void(0)\" onclick=\"PMDS.removeOrderBy('" + trID + "');\" title=\"Remove\" class=\"icon-minus\">&nbsp;</a>";
+        tr = tr + '<td>&nbsp;</td>';
+        tr = tr + '<td><input type="text" name="order_by[]"  value="" placeholder="Enter Attribute"></td><td><select style="width: auto;" name="orders[]"><option value="1">ASC</option><option value="-1">DESC</option></select>';
+        tr = tr + '&nbsp;<a href="javascript:void(0)" onclick="PMDS.appendOrderBy();" class="icon-plus" title="Add"><span class="glyphicon glyphicon-plus"></span></a>&nbsp;';
+        tr = tr + "<a href=\"javascript:void(0)\" onclick=\"PMDS.removeOrderBy('" + trID + "');\" title=\"Remove\" ><span class=\"glyphicon glyphicon-minus\"></span></a>";
         tr = tr + '</td>';
         tr = tr + '</tr>';
         $("#tbl-order-by").append(tr);
         return false;
     },
     removeOrderBy: function(trID) {
-        $("table#tbl-order-by tr#" + trID).remove();
+        $("table #tbl-order-by tr#" + trID).remove();
         return false;
     }
 }    

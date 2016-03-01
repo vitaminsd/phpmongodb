@@ -1,24 +1,27 @@
 <?php $autocomplete= isset(Config::$autocomplete) && Config::$autocomplete==TRUE ?'on':'off';?>
 <div class="dialog">
-    <div class="block">
-        <p class="block-heading">Sign In</p>
-        <div class="block-body">
-            <form id="tab2" method="post" action="index.php">
-                <label><?php I18n::p('USERNAME'); ?></label>
-                <input name="username" type="text" class="span12" autocomplete="<?php echo $autocomplete;?>" autofocus>
-                <label><?php I18n::p('PASSWORD'); ?></label>
-                <input name="password" type="password" class="span12" value="" autocomplete="<?php echo $autocomplete;?>">
-                <?php
-                if (Config::$authentication['authentication']) {
-                    ?>
-                    <label><?php I18n::p('Database'); ?></label>
-                    <input name="db" type="text" class="span12" value="" autocomplete="<?php echo $autocomplete;?>">
-                <?php } ?>
-                <button class="btn btn-primary pull-right"><?php I18n::p('LOGIN'); ?></button>
-
-                <div class="clearfix"></div>
-                <input type="hidden"  name="load" value="Login/Index"/>
-            </form>
+    <div class="col-md-offset-4 col-md-4">
+        <h3>Sign In</h3>
+        <form id="tab2" method="post" action="index.php" class="form-group">
+        <div class="form-group">
+            <label><?php I18n::p('USERNAME'); ?></label>
+            <input name="username" type="text" class="form-control" autocomplete="<?php echo $autocomplete;?>" autofocus>
         </div>
+        <div class="form-group">
+            <label><?php I18n::p('PASSWORD'); ?></label>
+            <input name="password" type="password" class="form-control" value="" autocomplete="<?php echo $autocomplete;?>">
+            <?php
+            if (Config::$authentication['authentication']) {
+                ?>
+                <label><?php I18n::p('Database'); ?></label>
+                <input name="db" type="text" class="form-control" value="" autocomplete="<?php echo $autocomplete;?>">
+            <?php } ?>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary pull-right"><?php I18n::p('LOGIN'); ?></button>
+            <div class="clearfix"></div>
+            <input type="hidden"  name="load" value="Login/Index"/>
+        </div>
+        </form>
     </div>
 </div>

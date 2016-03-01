@@ -1,5 +1,5 @@
 <?php defined('PMDDA') or die('Restricted access'); ?>
-<div class="sidebar-nav">
+<div class="sidebar-nav" id="left">
     <?php
     $chttp=new Chttp();
     $dbList = Widget::get('DBList');

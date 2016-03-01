@@ -17,7 +17,9 @@
                         <td><input type="text" class="input-xlarge" name="fields[]" required="required" placeholder="Enter Key"></td>
                         <td><textarea  rows="2" class="input-xlarge" name="values[]" required="required" placeholder="Enter Value"></textarea></td>
                         <td>
-                            <a href="javascript:void(0)" class="icon-plus" title="<?php I18n::p('ADD');?>"  onclick="PMDI.appendTR('insert')">&nbsp;</a>
+                            <a href="javascript:void(0)" class="icon-plus" title="<?php I18n::p('ADD');?>"  onclick="PMDI.appendTR('insert')">
+                                &nbsp;<span class="glyphicon glyphicon-plus"></span>
+                            </a>
                         </td>
                     </tr>
                    

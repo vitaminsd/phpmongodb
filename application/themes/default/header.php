@@ -9,15 +9,14 @@
         <meta name="description" content="mongoDB">
         <meta name="author" content="">
         <link rel="stylesheet" type="text/css" href="<?php echo Theme::getPath(); ?>bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo Theme::getPath(); ?>css/style.css?v=<?php echo Theme::getVersion('/application/themes/default/css/style.css');?> ">
+        <link rel="stylesheet" type="text/css" href="<?php echo Theme::getPath(); ?>css/style.css">
         <link rel="icon" href="<?php echo Theme::getPath(); ?>images/favicon.ico" type="image/x-icon" />
         <script src="<?php echo Theme::getPath(); ?>js/jquery-1.11.2.min.js" type="text/javascript"></script>
-
-
     </head>
 
-    <body> 
-        <header class="main-header">
+    <body>
+        <div id="container">
+        <header class="main-header" id="header">
             <!-- Logo -->
             <nav class="navbar navbar-default navbar-nomargin" role="navigation">
                 <div class="navbar-header">
@@ -40,3 +39,4 @@
                 </div>
             </nav>
         </header>
+        <div id="center">

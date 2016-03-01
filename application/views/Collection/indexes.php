@@ -9,7 +9,7 @@
 
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane active in" id="IndexesList">
-            <table class="table">
+            <table class="table table-hover ">
                 <thead>
                     <tr>
                         <th>v</th>

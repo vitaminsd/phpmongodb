@@ -1,5 +1,5 @@
 <div class="block col-sm-12 col-md-5">
-        <p class="block-heading" id="block-heading"><?php echo I18n::t('CAE_COL');?></p>
+        <h4 id="block-heading"><?php echo I18n::t('CAE_COL');?></h4>
         <div class="block-body">
             <form id="form-create-collection" method="post" class="form-horizontal" action="index.php">
             <div class="form-group">

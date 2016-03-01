@@ -3,11 +3,8 @@
 </div>
 <div class="row-fluid">
     <div class="block col-sm-12 col-md-6"  style="margin-right:5%">
-        <div class="block-heading">
-            <a href="#widget2container" data-toggle="collapse"><?php I18n::p('DB'); ?></a>
-        </div>
         <div id="widget2container" class="block-body collapse in">
-            <table class="table table-hover list">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th><?php I18n::p('NAME'); ?></th>
@@ -25,8 +22,8 @@
                                 <td><?php echo $db['sizeOnDisk']; ?></td>
                                 <?php if (!Application::isReadonly()) { ?>
                                     <td>
-                                        <a href="#myModal" data-edit-db="<?php echo $db['name']; ?>" role="button" data-toggle="modal" class="icon-edit" title="Edit">&nbsp;</a>
-                                        <a href="#myModal" data-delete-db="<?php echo $db['name']; ?>" role="button" data-toggle="modal" class="icon-remove" title="Remove">&nbsp;</a>
+                                        <a href="#myModal" data-edit-db="<?php echo $db['name']; ?>" role="button" data-toggle="modal" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
+                                        <a href="#myModal" data-delete-db="<?php echo $db['name']; ?>" role="button" data-toggle="modal" title="Remove"><span class="glyphicon glyphicon-remove"></span></a>
                                     </td>
                                 <?php } ?>
                             </tr>

@@ -1,11 +1,7 @@
-
 <div class="well" id="container-indexes">
-    
-
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane active in" id="IndexesList">
             <table class="table">
-    
                 <tbody>
                     <?php foreach ($this->data['status'] as $k => $v) { ?>
                         <tr>
@@ -16,7 +12,5 @@
                 </tbody>
             </table>
         </div>            
-        
-
     </div>
 </div>

@@ -1,6 +1,6 @@
 <!--create new datebase form-->
 <div class="block col-sm-12 col-md-5">
-    <p class="block-heading" id="block-heading"><?php I18n::p('C_DB');?></p>
+    <h4 id="block-heading"><?php I18n::p('C_DB');?></h4>
     <div class="block-body">
         <form id="form-create-database" method="post" class="form-horizontal" action="index.php">
             <div class="form-group">
