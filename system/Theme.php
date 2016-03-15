@@ -127,8 +127,8 @@ class Theme {
                 }
             }
 
-            echo '<div class="pagination">';
-            echo '<ul>';
+            echo '<div>';
+            echo '<ul class="pagination">';
             if ($current != 0) {
                 echo '<li><a href="' . self::paginationURL($url, (($current - 1) * $split)) . '">Prev</a></li>';
             }

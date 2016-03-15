@@ -5,7 +5,6 @@ class Model {
     protected $mongo;
 
     public function __construct() {
-
         $session = Application::getInstance('Session');
         $mongo = PHPMongoDB::getInstance($session->server, $session->options);
         $exception = $mongo->getExceptionMessage();
@@ -16,7 +15,20 @@ class Model {
 
     public function listDatabases() {
         try {
-            return $this->mongo->admin->command(array("listDatabases" => 1));
+            $dblist = $this->mongo->admin->command(array("listDatabases" => 1));
+            if (Config::$dbmanager['all']) {
+                return $dblist;
+            }
+            else {
+                $dbshow = array();
+                foreach ($dblist['databases'] as $db) {
+                    if (in_array($db['name'], Config::$dbmanager['databases']))
+                    {
+                        $dbshow['databases'][] = $db;
+                    }
+                }
+                return $dbshow;
+            }
         } catch (Exception $e) {
             return $e->getMessage();
         }

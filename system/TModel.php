@@ -2,18 +2,17 @@
 /**
 * @author mqzhou <mqzhou@iflytek.com>
 * @access 2016/02/24
-* create CModel for config file Model
+* create TModel for tool Model
 */
-class CModel {
+class TModel {
 
-    public $paths = array();
-    public $ext = array();
+    public $tools = array();
 
     public function __construct() {
-        $this->paths = Config::$configpaths['paths'];
-        $this->ext = Config::$configpaths['ext'];
+        $this->tools = Config::$tools;
     }
 
+    
     public function listPaths() {
         try {
             return $this->paths;

@@ -1,5 +1,6 @@
+<?php date_default_timezone_set("Asia/Shanghai");?>
 <div class="header">
-    <h3><?php I18n::p('DB'); ?></h3>
+    <h3><?php I18n::p('C_F'); ?></h3>
 </div>
 <div class="row-fluid">
     <div class="block col-sm-12 col-md-6"  style="margin-right:5%">
@@ -8,17 +9,17 @@
                 <thead>
                     <tr>
                         <th><?php I18n::p('NAME'); ?></th>
-                        <th><?php I18n::p('S_O_D'); ?></th>
+                        <th><?php I18n::p('M_T'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    if (isset($this->data['dbList']['databases']) && is_array($this->data['dbList']['databases'])) {
-                        foreach ($this->data['dbList']['databases'] as $db) {
+                    if (is_array($this->data)) {
+                        foreach ($this->data as $path) {
                             ?>
                             <tr>
-                                <td><a href="<?php echo Theme::URL('Collection/Index', array('db' => $db['name'])); ?>"><?php echo $db['name']; ?></i></td>
-                                <td><?php echo $db['sizeOnDisk']; ?></td>
+                                <td><a title="<?php echo $path['name']; ?>" href="<?php echo Theme::URL('Configuration/Index', array('path' => $path['name'])); ?>"><?php echo basename($path['name']); ?></i></td>
+                                <td><?php echo date("Y-m-d H:i:s", $path['mtime']) ?></td>
                             </tr>
                             <?php
                         }
@@ -28,4 +29,3 @@
             </table>
         </div>
     </div>
-</div>

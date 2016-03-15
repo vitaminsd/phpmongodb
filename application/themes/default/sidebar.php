@@ -1,10 +1,22 @@
 <?php defined('PMDDA') or die('Restricted access'); ?>
 <div class="sidebar-nav" id="left">
+    <p class="main-header"><a href="<?php echo Theme::URL('Datatable/Index'); ?>">数据库</p>
+    <a href="<?php echo Theme::URL('Datatable/Record', array('table'=>'sentence')); ?>" class="nav-header" >
+        <span class="glyphicon glyphicon-floppy-disk"></span>句库
+    </a>
+    <a href="<?php echo Theme::URL('Datatable/Record', array('table'=>'word')); ?>" class="nav-header" >
+        <span class="glyphicon glyphicon-floppy-disk"></span>词库
+    </a>
+
     <?php
     $chttp=new Chttp();
     $dbList = Widget::get('DBList');
+    
     $confModel = new Configuration;
     $pathList = $confModel->paths;
+    
+    $tModel=new Tool;
+    $tools = $tModel->tools;
 
     if (is_array($dbList['databases'])) {
     ?><p class="main-header"><a href="<?php echo Theme::URL('Database/Index'); ?>"><?php I18n::p('DB'); ?></a></p>
@@ -64,13 +76,13 @@
                 if ($pathName == $path) {
                     ?>
                     <a href="#config-menu" class="nav-header" data-toggle="collapse" title="<?php echo $path;?>">
-                        <span class="glyphicon glyphicon-book"></span><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
+                        <span class="glyphicon glyphicon-folder-open"></span><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
                     </a>
                     <?php
                 } else {
                     ?>
                     <a href="<?php echo Theme::URL('Configuration/Index', array('path' => $path)); ?>" class="nav-header" title="<?php echo $path;?>">
-                        <span class="glyphicon glyphicon-book"></span><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
+                        <span class="glyphicon glyphicon-folder-open"></span><?php echo basename($path); ?><span class="label label-info"><?php echo count($array_file);?></span>
                     </a>
                     <?php
                 }
@@ -85,5 +97,19 @@
                 }
             }
     }
+    
+    
+    if (is_array($tools)) {
         ?>
+        <p class="main-header"><a href="<?php echo Theme::URL('Tool/Index'); ?>"><?php I18n::p('Tools'); ?></a></p>
+        <?php
+            foreach ($tools as $toolfunc=>$toolval) {
+        ?>
+                <a href="<?php echo Theme::URL('Tool/Index', array('tool' => $toolfunc)); ?>" class="nav-header" title="<?php echo $toolfunc; ?>">
+                    <span class="glyphicon glyphicon-wrench"></span><?php echo $toolfunc; ?>
+                </a>
+                <?php
+            }
+    }
+                ?>
 </div>

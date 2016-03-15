@@ -9,6 +9,7 @@
                     <tr>
                         <th><?php I18n::p('NAME'); ?></th>
                         <th><?php I18n::p('S_O_D'); ?></th>
+                        <th >&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -17,8 +18,14 @@
                         foreach ($this->data['dbList']['databases'] as $db) {
                             ?>
                             <tr>
-                                <td><a href="<?php echo Theme::URL('Collection/Index', array('db' => $db['name'])); ?>"><?php echo $db['name']; ?></i></td>
+                                <td><a href="<?php echo Theme::URL('CollectionFull/Index', array('db' => $db['name'])); ?>"><?php echo $db['name']; ?></i></td>
                                 <td><?php echo $db['sizeOnDisk']; ?></td>
+                                <?php if (!Application::isReadonly()) { ?>
+                                    <td>
+                                        <a href="#myModal" data-edit-db="<?php echo $db['name']; ?>" role="button" data-toggle="modal" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
+                                        <a href="#myModal" data-delete-db="<?php echo $db['name']; ?>" role="button" data-toggle="modal" title="Remove"><span class="glyphicon glyphicon-remove"></span></a>
+                                    </td>
+                                <?php } ?>
                             </tr>
                             <?php
                         }
@@ -28,4 +35,12 @@
             </table>
         </div>
     </div>
+    <?php
+    if (!Application::isReadonly())
+        require_once '_create.php';
+    ?>
 </div>
+<?php
+if (!Application::isReadonly())
+    require_once '_form.php';
+?>

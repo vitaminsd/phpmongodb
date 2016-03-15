@@ -39,7 +39,7 @@ class ConfigurationController extends Controller {
     
     public function ListPaths() {
         $this->getModel();
-        $pathInfo = $this->cmodel->listFolder(Config::$configpaths);
+        $pathInfo = $this->cmodel->listFolder(Config::$configpaths['paths']);
         $this->display('list', $pathInfo);
     }
     

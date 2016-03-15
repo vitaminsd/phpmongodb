@@ -1,11 +1,11 @@
 <?php require_once '_menu.php'; ?>
 <div class="well" id="container-insert" >
     <ul class="nav nav-tabs">
-        <li class="<?php echo $this->data['format'] === 'json'?'active':''; ?>">
-            <a href="#JSON" data-toggle="tab"><?php I18n::p('JSON');?></a>
-        </li>
         <li class="<?php echo $this->data['format'] === 'array'?'active':''; ?>">
             <a href="#Array" data-toggle="tab"><?php I18n::p('Array');?></a>
+        </li>
+        <li class="<?php echo $this->data['format'] === 'json'?'active':''; ?>">
+            <a href="#JSON" data-toggle="tab"><?php I18n::p('JSON');?></a>
         </li>
     </ul>
     <div id="myTabContent" class="tab-content">
@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <textarea name="data" rows="16" class="form-control">
-<?php echo $this->data['record']['array']; ?>
+<?php echo "\n" . $this->data['record']['array']; ?>
                 </textarea>
                 <div>
                     <br>
@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <textarea name="data" rows="16" style="width:100%;">
-<?php echo $this->data['record']['json']; ?>
+<?php echo "\n" . $this->data['record']['json']; ?>
                 </textarea>
                 <div>
                     <br>

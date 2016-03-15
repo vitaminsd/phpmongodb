@@ -21,18 +21,40 @@ class Config {
         'port'=>"27017",
         'timeout'=>0,
     );
+    public static $dbmanager = array(
+        'all' => false,
+        'databases' => array(
+            "test",
+            "xxx"
+        )
+    );
     public static $authentication = array(
         'authentication'=>false,
         'user' => 'admin',
-        'password' => 'admin'
+        // md5 password
+        'password' => '21232f297a57a5a743894a0e4a801fc3'
     );
     public static $authorization = array(
         'readonly'=>false,
     );
     public static $configpaths = array(
-        "D:/xampp/htdocs/mqzhou/zzz",
-        "D:/xampp/htdocs/mqzhou/yyy/",
-        "D:/xampp/htdocs/mqzhou/yyy/fss.cfg"
+        'paths' => array(
+            "D:/xampp/htdocs/mqzhou/zzz",
+            "D:/xampp/htdocs/mqzhou/yyy/",
+            "D:/xampp/htdocs/mqzhou/trunk",
+            "D:/xampp/htdocs/mqzhou/yyy/fss.cfg"
+            ),
+        // file filter
+        'ext' => array(
+            'cfg',
+            'cfu',
+            ''
+        )
+    );
+    // function name => bash file path
+    public static $tools = array(
+        '前处理' => 'bashfile1',
+        '后处理' => 'bashfile2'
     );
     /**
      *

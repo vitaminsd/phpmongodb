@@ -10,7 +10,7 @@ defined('PMDDA') or die('Restricted access');
  * Controller
  */
 
-class CollectionController extends Controller {
+class CollectionFullController extends Controller {
 
     protected $db = NULL;
     protected $collection = NULL;
@@ -96,7 +96,7 @@ class CollectionController extends Controller {
                 break;
             }
         }
-        $this->request->redirect(Theme::URL('Collection/Indexes', array('db' => $this->db, 'collection' => $this->collection)));
+        $this->request->redirect(Theme::URL('CollectionFull/Indexes', array('db' => $this->db, 'collection' => $this->collection)));
     }
 
     public function CreateIndexes() {
@@ -125,7 +125,7 @@ class CollectionController extends Controller {
         $response = $this->getModel()->createIndex($this->db, $this->collection, $key, $options);
 
         //$this->debug($response);
-        $this->request->redirect(Theme::URL('Collection/Indexes', array('db' => $this->db, 'collection' => $this->collection)));
+        $this->request->redirect(Theme::URL('CollectionFull/Indexes', array('db' => $this->db, 'collection' => $this->collection)));
     }
 
     protected function getQuery($query = array()) {
@@ -280,7 +280,7 @@ class CollectionController extends Controller {
             }
             exit();
         }else{
-            $this->url = Theme::URL('Collection/Record', array('db' => $this->db, 'collection' => $this->collection));
+            $this->url = Theme::URL('CollectionFull/Record', array('db' => $this->db, 'collection' => $this->collection));
             $this->request->redirect($this->url);
         }
     }
@@ -298,7 +298,7 @@ class CollectionController extends Controller {
             } else {
                 $this->message->error = I18n::t('INVALID_ID');
             }
-            $this->url = Theme::URL('Collection/Record', array('db' => $this->db, 'collection' => $this->collection));
+            $this->url = Theme::URL('CollectionFull/Record', array('db' => $this->db, 'collection' => $this->collection));
         } else {
             $this->url = "index.php";
         }
@@ -331,7 +331,7 @@ class CollectionController extends Controller {
                     break;
             }
         }
-        $this->request->redirect(Theme::URL('Collection/Record', array('db' => $this->db, 'collection' => $this->collection)));
+        $this->request->redirect(Theme::URL('CollectionFull/Record', array('db' => $this->db, 'collection' => $this->collection)));
     }
 
     private function insertRecord($a) {
@@ -381,10 +381,10 @@ class CollectionController extends Controller {
         switch ($type) {
             case 'db':
             case 'database':
-                $this->url = Theme::URL('Database/Indexes');
+                $this->url = Theme::URL('DatabaseFull/Indexes');
                 break;
             case 'collection':
-                $this->url = (empty($this->db) ? Theme::URL('Database/Indexes') : Theme::URL('Collection/Index', array('db' => $this->db)));
+                $this->url = (empty($this->db) ? Theme::URL('DatabaseFull/Indexes') : Theme::URL('CollectionFull/Index', array('db' => $this->db)));
                 break;
             default :
                 $this->url = "index.php";
@@ -406,7 +406,7 @@ class CollectionController extends Controller {
             } else {
                 $this->message->error = I18n::t('E_C_N');
             }
-            $this->url = Theme::URL('Collection/Index', array('db' => $this->db));
+            $this->url = Theme::URL('CollectionFull/Index', array('db' => $this->db));
         }
         $this->request->redirect($this->url);
     }
@@ -423,7 +423,7 @@ class CollectionController extends Controller {
                 } else {
                     $this->message->error = $response['errmsg'];
                 }
-                $this->url = Theme::URL('Collection/Index', array('db' => $this->db));
+                $this->url = Theme::URL('CollectionFull/Index', array('db' => $this->db));
             }
         }
         $this->request->redirect($this->url);
@@ -439,7 +439,7 @@ class CollectionController extends Controller {
             } else {
                 $this->message->error = $response['errmsg'];
             }
-            $this->url = Theme::URL('Collection/Index', array('db' => $this->db));
+            $this->url = Theme::URL('CollectionFull/Index', array('db' => $this->db));
         }
         $this->request->redirect($this->url);
     }
@@ -451,7 +451,7 @@ class CollectionController extends Controller {
         if ($this->validation($this->db, $this->collection)) {
             $response = $this->getModel()->removeCollection($this->db, $this->collection);
             $this->message->sucess = I18n::t('C_R', $this->collection);
-            $this->url = Theme::URL('Collection/Index', array('db' => $this->db));
+            $this->url = Theme::URL('CollectionFull/Index', array('db' => $this->db));
         }
         $this->request->redirect($this->url);
     }
@@ -584,15 +584,12 @@ class CollectionController extends Controller {
         $this->display('search');
     }
 
-    public function Maintain() {
-        
-    }
     /**
      * @author Nanhe Kumar <nanhe.kumar@gmail.com>
      * @access protected
      */
     protected function gotoDatabse() {
-        $this->request->redirect(Theme::URL('Database/Index'));
+        $this->request->redirect(Theme::URL('DatabaseFull/Index'));
     }
 
 }

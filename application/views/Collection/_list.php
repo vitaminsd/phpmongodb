@@ -1,55 +1,41 @@
-<?php if (!Application::isReadonly()) { ?>
-<div class="nav-sub-panel" >
-    <div class="form-group form-horizontal">
-    <label><input type="checkbox" name="check-all" id="check-all" value="" style="margin: 0"> Check All/ Uncheck All</label>
-    <a title="Delete" href="javascript:void(0)" id="delete-all" ><span class="glyphicon glyphicon-remove"></span>Delete</a>
-    <input type="hidden" name="db-hidden" id="db-hidden" value="<?php echo $this->db;?>" />
-    <input type="hidden" name="collection-hidden" id="collection-hidden" value="<?php echo $this->collection;?>" />
-    </div>
-</div> 
-<?php }?>
 <div class="well">
-    <?php
-    $showTab = true;
-    foreach ($this->data['format'] as $format) {
-        if (!isset($this->data['record'][$format]))
-            continue;
-        ?>
+<?php
+    if (!isset($this->data['record']))
+        return;
+?>
+    <div style="margin-bottom:20px;">
+    <form class="form-inline">
+        <div class="form-group">
+            <label class="text-primary">Order By</label>
+            <input type="text" name="order_by[]" class="form-control" placeholder="_id">
+        </div>
+        <div class="form-group">
+            <select class="form-control" name="orders[]">
+                <option value="-1">DESC</option>
+                <option value="1">ASC</option>
+            </select>
+        </div>
+        <input type="hidden" name="load" value="Collection/Record"/>
+        <input type="hidden" name="db" value="<?php echo $this->db; ?>" />
+        <input type="hidden" name="collection" value="<?php echo $this->collection; ?>" />
+        <button type="submit" class="btn btn-primary">Order</button>
+    </form>
+    </div>
+    <div id="record-json" style="display:block">
         <?php
-        if ($showTab) {
-            ?>    
-            <ul class="nav nav-tabs">
-                <li id="li-json"class="active"><a href="javascript:void(0)" data-list-record="json"><?php I18n::p('JSON'); ?></a></li>
-                <li id="li-array"><a href="javascript:void(0)" data-list-record="array"><?php I18n::p('Array'); ?></a></li>
-                <li id="li-document"><a href="javascript:void(0)" data-list-record="document"><?php I18n::p('MongoCursor'); ?></a></li>
-            </ul>
-            <?php
-            $showTab = false;
+        $i = -1;
+        foreach ($this->data['record']['json'] as $cursor) {
+            ++$i;
+            if (isset($this->data['record']['document'][0]['_id']) && !Application::isReadonly()) {
+                echo '&nbsp;<a href="javascript:void(0)"  onclick="callAjax(\'' . Theme::URL('Collection/EditRecord', array('db' => $this->db, 'collection' => $this->collection, 'id' => $this->data['record']['document'][$i]['_id'], 'format' => 'json', 'id_type' => gettype($this->data['record']['document'][$i]['_id']))) . '\')" title="Edit">Edit <span class="glyphicon glyphicon-edit"></span></a>';
+                echo '&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . Theme::URL('Collection/DeleteRecord', array('db' => $this->db, 'collection' => $this->collection, 'id' => $this->data['record']['document'][$i]['_id'], 'id_type' => gettype($this->data['record']['document'][$i]['_id']))) . '" class="icon-remove" title="Delete">Delete <span class="glyphicon glyphicon-remove"></span></a>';
+            }
+            echo "<pre>";
+            print_r($cursor);
+            echo "</pre>";
         }
         ?>
-        <div id="record-<?php echo $format; ?>" style="display: <?php echo $format === 'json' ? 'block' : 'none'; ?>">
-            <?php
-            $i = -1;
-            foreach ($this->data['record'][$format] as $cursor) {
-                ++$i;
-
-                if (isset($this->data['record']['document'][0]['_id']) && !Application::isReadonly()) {
-                    echo '&nbsp<input type="checkbox" name="ids[]" value="' . $this->data['record']['document'][$i]['_id'] . '" class="checkbox-remove" />';
-                    echo '&nbsp<a href="javascript:void(0)"  onclick="callAjax(\'' . Theme::URL('Collection/EditRecord', array('db' => $this->db, 'collection' => $this->collection, 'id' => $this->data['record']['document'][$i]['_id'], 'format' => $format, 'id_type' => gettype($this->data['record']['document'][$i]['_id']))) . '\')" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>';
-                    echo '&nbsp<a href="' . Theme::URL('Collection/DeleteRecord', array('db' => $this->db, 'collection' => $this->collection, 'id' => $this->data['record']['document'][$i]['_id'], 'id_type' => gettype($this->data['record']['document'][$i]['_id']))) . '" class="icon-remove" title="Delete"><span class="glyphicon glyphicon-remove"></span></a>';
-                }
-                echo "<pre>";
-                print_r($cursor);
-                echo "</pre>";
-            }
-            ?>
-
-            
-        </div>
-        <?php
-    }
-    ?>
-    
+    </div>
 </div>
    
 <?php Theme::pagination($this->getModel()->totalRecord($this->db, $this->collection)); ?>

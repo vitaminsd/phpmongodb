@@ -17,22 +17,20 @@
                         <th>Field</th>
                         <th>Operator</th>
                         <th>Value</th>
-                        <th>&nbsp;</th>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
-                        <td><input class="form-control" type="text" name="query[]"  placeholder="Enter Attribute"></td>
-                        <td><select class="form-control" name="query[]" style="width: auto;">
+                        <td><input type="text" name="query[]"  placeholder="Enter Attribute"></td>
+                        <td><select name="query[]">
                                 <option value="=">=</option>
                                 <option value="$gt">&gt;</option>
                                 <option value="$gte">&ge;</option>
                                 <option value="$lt">&lt;</option>
                                 <option value="$lte">&le;</option>
                                 <option value="$ne">&ne;</option>
-                            </select>
-                        </td>
-                        <td><input class="form-control" type="text" name="query[]" placeholder="Enter Value"></td>
-                        <td><a href="javascript:void(0)" onclick="PMDS.appendTR();" class="icon-plus" title="Add"><span class="glyphicon glyphicon-plus"></span></a>&nbsp;</td>
+                            </select></td>
+                        <td ><input type="text" name="query[]" placeholder="Enter Value">
+                        <a href="javascript:void(0)" onclick="PMDS.appendTR();" class="icon-plus" title="Add"><span class="glyphicon glyphicon-plus"></span></a>&nbsp;</td>
                     </tr>
                 </tbody>
                 <tbody id="tbl-order-by">
@@ -40,15 +38,12 @@
                     <th>&nbsp;</th>
                         <th>Order By</th>
                         <th>Order</th>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
                     </tr>
                     <tr>
                     <th>&nbsp;</th>
-                        <td><input class="form-control" type="text" name="order_by[]" placeholder="Enter Attribute"></td>
-                        <td><select class="form-control" name="orders[]" style="width: auto;"><option value="1">ASC</option><option value="-1">DESC</option></select></td>
-                        <td></td>
-                        <td><a href="javascript:void(0)" onclick="PMDS.appendOrderBy();" title="Add" ><span class="glyphicon glyphicon-plus"></span></a></td>
+                        <td><input type="text" name="order_by[]"  value="_id" placeholder="Enter Attribute"></td>
+                        <td><select  name="orders[]"><option value="1">ASC</option><option value="-1">DESC</option></select>
+                        <a href="javascript:void(0)" onclick="PMDS.appendOrderBy();" title="Add" ><span class="glyphicon glyphicon-plus"></span></a></td>
                     </tr>
                 </tbody>
                 </table>
@@ -66,7 +61,7 @@
         <!-- Key Value Search End -->
         <div class="tab-pane fade" id="searhArray">
             <form id="tab2" method="get" action="index.php">
-                <textarea class="form-control" name="query" rows="3" style="width:100%;">array (
+                <textarea name="query" rows="3" style="width:100%;">array (
 )</textarea>
                 <div>
                     <button class="btn btn-primary">Search</button>
@@ -80,7 +75,7 @@
         </div>
         <div class="tab-pane fade" id="searchJSON">
             <form id="tab3" method="get" action="index.php">
-                <textarea class="form-control" name="query" rows="3" style="width:100%;">{
+                <textarea name="query" rows="3" style="width:100%;">{
   
 }</textarea>
                 <div>

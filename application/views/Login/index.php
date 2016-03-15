@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
             <label><?php I18n::p('PASSWORD'); ?></label>
-            <input name="password" type="password" class="form-control" value="" autocomplete="<?php echo $autocomplete;?>">
+            <input name="password" type="password" class="form-control" id="password" autocomplete="<?php echo $autocomplete;?>">
             <?php
             if (Config::$authentication['authentication']) {
                 ?>
@@ -18,10 +18,16 @@
             <?php } ?>
         </div>
         <div class="form-group">
-            <button class="btn btn-primary pull-right"><?php I18n::p('LOGIN'); ?></button>
+            <button id="login" class="btn btn-primary pull-right"><?php I18n::p('LOGIN'); ?></button>
             <div class="clearfix"></div>
             <input type="hidden"  name="load" value="Login/Index"/>
         </div>
         </form>
     </div>
 </div>
+<script src="<?php echo Theme::getPath(); ?>js/md5.js"></script>
+<script type="text/javascript">
+    $("#login").click(function(){
+        $("input#password").val(md5($("input#password").val()));
+    });
+</script>
